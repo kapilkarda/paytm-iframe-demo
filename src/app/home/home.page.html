@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Paytm Payment
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="form_div==true" >
+    <ion-item>
+      <ion-label position="fixed">Order Id:</ion-label>
+      <ion-input type="text" [(ngModel)]="formModal.order_id" inputmode="text"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="fixed">Amount : </ion-label>
+      <ion-input type="text" [(ngModel)]="formModal.amount" inputmode="text"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="fixed">Email Id/ Cust Id.</ion-label>
+      <ion-input type="text" [(ngModel)]="formModal.email" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-button expand="full" (click)="submitForm()" >Submit</ion-button>
+  </div>
+  <div *ngIf="form_div==false" style="height: 100%; width: 100%;" >
+    <iframe id="paymentIframe" width="100%" height="100%" [src]="url" (load)="startLoader(this)" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+</ion-content>
